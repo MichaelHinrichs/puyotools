@@ -66,16 +66,36 @@ namespace PuyoTools.GUI
                     }
 
                     // Get the output path and create it if it does not exist.
-                    string outPath = Path.Combine(Path.GetDirectoryName(file), "Decompressed Files");
-                    if (!Directory.Exists(outPath))
+                    string outPath;
+
+                    if (settings.DecompressToSourceDirectory)
                     {
-                        Directory.CreateDirectory(outPath);
+                        outPath = Path.GetDirectoryName(file);
+                    }
+                    else
+                    {
+                        outPath = Path.Combine(Path.GetDirectoryName(file), "Decompressed Files");
+                        // Create the output path if it does not exist.
+                        if (!Directory.Exists(outPath))
+                        {
+                            Directory.CreateDirectory(outPath);
+                        }
                     }
 
                     // Time to write out the file
-                    using (FileStream destination = File.Create(Path.Combine(outPath, Path.GetFileName(file))))
+                    if (settings.RemoveExtension)
                     {
-                        buffer.WriteTo(destination);
+                        using (FileStream destination = File.Create(Path.Combine(outPath, Path.GetFileNameWithoutExtension(file))))
+                        {
+                            buffer.WriteTo(destination);
+                        }
+                    }
+                    else
+                    {
+                        using (FileStream destination = File.Create(Path.Combine(outPath, Path.GetFileName(file))))
+                        {
+                            buffer.WriteTo(destination);
+                        }
                     }
 
                     // Delete the source file if the user chose to
@@ -94,6 +114,8 @@ namespace PuyoTools.GUI
         private struct Settings
         {
             public bool OverwriteSourceFile;
+            public bool RemoveExtension;
+            public bool DecompressToSourceDirectory;
             public bool DeleteSourceFile;
         }
 
@@ -106,6 +128,8 @@ namespace PuyoTools.GUI
             Settings settings = new Settings
             {
                 OverwriteSourceFile = overwriteSourceFileCheckbox.Checked,
+                RemoveExtension = removeExtensionCheckbox.Checked || decompressToSourceDirCheckbox.Checked,
+                DecompressToSourceDirectory = decompressToSourceDirCheckbox.Checked,
                 DeleteSourceFile = deleteSourceFileCheckbox.Checked,
             };
 

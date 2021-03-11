@@ -100,6 +100,11 @@ namespace PuyoTools.GUI
                             // Extract to a directory of the same name
                             outPath = file + "." + Path.GetRandomFileName();
                         }
+                        else if (settings.ExtractToSameNameDirectoryWithoutExtension)
+                        {
+                            // Extract to a directory of the same name, without extension
+                            outPath = Path.Combine(Path.GetDirectoryName(file), Path.GetFileNameWithoutExtension(file));
+                        }
                         else
                         {
                             // Just the standard output path
@@ -333,6 +338,7 @@ namespace PuyoTools.GUI
             public bool DecompressSourceArchive;
             public bool ExtractToSourceDirectory;
             public bool ExtractToSameNameDirectory;
+            public bool ExtractToSameNameDirectoryWithoutExtension;
             public bool ExtractFileStructure;
             public bool DeleteSourceArchive;
 
@@ -358,7 +364,8 @@ namespace PuyoTools.GUI
             Settings settings = new Settings();
             settings.DecompressSourceArchive = decompressSourceArchiveCheckbox.Checked;
             settings.ExtractToSourceDirectory = extractToSourceDirCheckbox.Checked;
-            settings.ExtractToSameNameDirectory = extractToSameNameDirCheckbox.Checked && !settings.ExtractToSourceDirectory;
+            settings.ExtractToSameNameDirectory = extractToSameNameDirCheckbox.Checked && !settings.ExtractToSameNameDirectoryWithoutExtension && !settings.ExtractToSourceDirectory;
+            settings.ExtractToSameNameDirectoryWithoutExtension = extractToSameNameDirWithoutExtensionCheckbox.Checked && !settings.ExtractToSourceDirectory;
             settings.ExtractFileStructure = extractFileStructureCheckbox.Checked;
             settings.DeleteSourceArchive = deleteSourceArchiveCheckbox.Checked || settings.ExtractToSameNameDirectory;
 

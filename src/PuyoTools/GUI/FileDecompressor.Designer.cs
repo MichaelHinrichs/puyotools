@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.overwriteSourceFileCheckbox = new System.Windows.Forms.CheckBox();
+            this.removeExtensionCheckbox = new System.Windows.Forms.CheckBox();
+            this.decompressToSourceDirCheckbox = new System.Windows.Forms.CheckBox();
             this.deleteSourceFileCheckbox = new System.Windows.Forms.CheckBox();
             this.settingsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -36,6 +38,8 @@
             // settingsPanel
             // 
             this.settingsPanel.Controls.Add(this.deleteSourceFileCheckbox);
+            this.settingsPanel.Controls.Add(this.removeExtensionCheckbox);
+            this.settingsPanel.Controls.Add(this.decompressToSourceDirCheckbox);
             this.settingsPanel.Controls.Add(this.overwriteSourceFileCheckbox);
             // 
             // runButton
@@ -52,13 +56,34 @@
             this.overwriteSourceFileCheckbox.Text = "Overwrite source file";
             this.overwriteSourceFileCheckbox.UseVisualStyleBackColor = true;
             // 
+            // removeExtensionCheckbox
+            // 
+            this.removeExtensionCheckbox.AutoSize = true;
+            this.removeExtensionCheckbox.Location = new System.Drawing.Point(12, 38);
+            this.removeExtensionCheckbox.Name = "deleteSourceFileCheckbox";
+            this.removeExtensionCheckbox.Size = new System.Drawing.Size(420, 69);
+            this.removeExtensionCheckbox.TabIndex = 1;
+            this.removeExtensionCheckbox.Text = "Remove file extension from decompressed file";
+            this.removeExtensionCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // decompressToSourceDirCheckbox
+            // 
+            this.decompressToSourceDirCheckbox.AutoSize = true;
+            this.decompressToSourceDirCheckbox.Location = new System.Drawing.Point(12, 62);
+            this.decompressToSourceDirCheckbox.Name = "extractToSourceDirCheckbox";
+            this.decompressToSourceDirCheckbox.Size = new System.Drawing.Size(289, 17);
+            this.decompressToSourceDirCheckbox.TabIndex = 1;
+            this.decompressToSourceDirCheckbox.Text = "Decompress files to the same directory as the source file (and remove" +
+    " file extensions, to avoid overwriting the source file.)";
+            this.decompressToSourceDirCheckbox.UseVisualStyleBackColor = true;
+            // 
             // deleteSourceFileCheckbox
             // 
             this.deleteSourceFileCheckbox.AutoSize = true;
-            this.deleteSourceFileCheckbox.Location = new System.Drawing.Point(12, 37);
+            this.deleteSourceFileCheckbox.Location = new System.Drawing.Point(12, 86);
             this.deleteSourceFileCheckbox.Name = "deleteSourceFileCheckbox";
             this.deleteSourceFileCheckbox.Size = new System.Drawing.Size(183, 17);
-            this.deleteSourceFileCheckbox.TabIndex = 1;
+            this.deleteSourceFileCheckbox.TabIndex = 2;
             this.deleteSourceFileCheckbox.Text = "Delete source file (upon success)";
             this.deleteSourceFileCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -77,6 +102,8 @@
         #endregion
 
         private System.Windows.Forms.CheckBox overwriteSourceFileCheckbox;
+        private System.Windows.Forms.CheckBox removeExtensionCheckbox;
+        private System.Windows.Forms.CheckBox decompressToSourceDirCheckbox;
         private System.Windows.Forms.CheckBox deleteSourceFileCheckbox;
     }
 }

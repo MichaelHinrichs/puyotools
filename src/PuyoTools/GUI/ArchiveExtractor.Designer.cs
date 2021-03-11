@@ -32,6 +32,7 @@
             this.extractFileStructureCheckbox = new System.Windows.Forms.CheckBox();
             this.deleteSourceArchiveCheckbox = new System.Windows.Forms.CheckBox();
             this.extractToSameNameDirCheckbox = new System.Windows.Forms.CheckBox();
+            this.extractToSameNameDirWithoutExtensionCheckbox = new System.Windows.Forms.CheckBox();
             this.extractToSourceDirCheckbox = new System.Windows.Forms.CheckBox();
             this.decompressSourceArchiveCheckbox = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -63,6 +64,7 @@
             this.groupBox1.Controls.Add(this.extractFileStructureCheckbox);
             this.groupBox1.Controls.Add(this.deleteSourceArchiveCheckbox);
             this.groupBox1.Controls.Add(this.extractToSameNameDirCheckbox);
+            this.groupBox1.Controls.Add(this.extractToSameNameDirWithoutExtensionCheckbox);
             this.groupBox1.Controls.Add(this.extractToSourceDirCheckbox);
             this.groupBox1.Controls.Add(this.decompressSourceArchiveCheckbox);
             this.groupBox1.Location = new System.Drawing.Point(14, 14);
@@ -76,20 +78,20 @@
             // extractFileStructureCheckbox
             // 
             this.extractFileStructureCheckbox.AutoSize = true;
-            this.extractFileStructureCheckbox.Location = new System.Drawing.Point(13, 90);
+            this.extractFileStructureCheckbox.Location = new System.Drawing.Point(13, 115);
             this.extractFileStructureCheckbox.Name = "extractFileStructureCheckbox";
             this.extractFileStructureCheckbox.Size = new System.Drawing.Size(339, 17);
-            this.extractFileStructureCheckbox.TabIndex = 4;
+            this.extractFileStructureCheckbox.TabIndex = 5;
             this.extractFileStructureCheckbox.Text = "Create a file (entries.txt) with the archive\'s entries and file structure.";
             this.extractFileStructureCheckbox.UseVisualStyleBackColor = true;
             // 
             // deleteSourceArchiveCheckbox
             // 
             this.deleteSourceArchiveCheckbox.AutoSize = true;
-            this.deleteSourceArchiveCheckbox.Location = new System.Drawing.Point(13, 113);
+            this.deleteSourceArchiveCheckbox.Location = new System.Drawing.Point(13, 139);
             this.deleteSourceArchiveCheckbox.Name = "deleteSourceArchiveCheckbox";
             this.deleteSourceArchiveCheckbox.Size = new System.Drawing.Size(205, 17);
-            this.deleteSourceArchiveCheckbox.TabIndex = 3;
+            this.deleteSourceArchiveCheckbox.TabIndex = 4;
             this.deleteSourceArchiveCheckbox.Text = "Delete source archive (upon success)";
             this.deleteSourceArchiveCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -99,10 +101,20 @@
             this.extractToSameNameDirCheckbox.Location = new System.Drawing.Point(13, 67);
             this.extractToSameNameDirCheckbox.Name = "extractToSameNameDirCheckbox";
             this.extractToSameNameDirCheckbox.Size = new System.Drawing.Size(499, 17);
-            this.extractToSameNameDirCheckbox.TabIndex = 2;
+            this.extractToSameNameDirCheckbox.TabIndex = 3;
             this.extractToSameNameDirCheckbox.Text = "Extract files to a directory with the same name as the source archive (and delete" +
     " the source archive).";
             this.extractToSameNameDirCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // extractToSameNameWithoutExtensionDirCheckbox
+            // 
+            this.extractToSameNameDirWithoutExtensionCheckbox.AutoSize = true;
+            this.extractToSameNameDirWithoutExtensionCheckbox.Location = new System.Drawing.Point(13, 91);
+            this.extractToSameNameDirWithoutExtensionCheckbox.Name = "extractToSameNameWithoutExtensionDirCheckbox";
+            this.extractToSameNameDirWithoutExtensionCheckbox.Size = new System.Drawing.Size(499, 17);
+            this.extractToSameNameDirWithoutExtensionCheckbox.TabIndex = 2;
+            this.extractToSameNameDirWithoutExtensionCheckbox.Text = "Extract files to a directory with the same name as the source archive, without the file extension.";
+            this.extractToSameNameDirWithoutExtensionCheckbox.UseVisualStyleBackColor = true;
             // 
             // extractToSourceDirCheckbox
             // 
@@ -136,7 +148,7 @@
             this.groupBox2.Controls.Add(this.convertExtractedTexturesCheckbox);
             this.groupBox2.Controls.Add(this.extractExtractedArchivesCheckbox);
             this.groupBox2.Controls.Add(this.decompressExtractedFilesCheckbox);
-            this.groupBox2.Location = new System.Drawing.Point(14, 169);
+            this.groupBox2.Location = new System.Drawing.Point(14, 195);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.groupBox2.Size = new System.Drawing.Size(558, 149);
@@ -197,7 +209,7 @@
             // ArchiveExtractor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(584, 431);
+            this.ClientSize = new System.Drawing.Size(584, 457);
             this.Name = "ArchiveExtractor";
             this.Text = "Archive Extractor";
             this.settingsPanel.ResumeLayout(false);
@@ -216,6 +228,7 @@
         private System.Windows.Forms.CheckBox decompressSourceArchiveCheckbox;
         private System.Windows.Forms.CheckBox extractToSourceDirCheckbox;
         private System.Windows.Forms.CheckBox extractToSameNameDirCheckbox;
+        private System.Windows.Forms.CheckBox extractToSameNameDirWithoutExtensionCheckbox;
         private System.Windows.Forms.CheckBox deleteSourceArchiveCheckbox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox convertExtractedTexturesCheckbox;
